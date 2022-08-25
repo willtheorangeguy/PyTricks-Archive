@@ -9,6 +9,7 @@ Each PyTrick has a name that relates to the title of the newsletter, and you can
 **Here are the orignal email titles:**
 
 ```text
+[🐍PyTricks]: Emulate switch/case statements
 [🐍PyTricks]: Multiple sets of kwargs in Python 3.5+
 [🐍PyTricks]: Forced keyword-only parameters in Python 3.x
 [🐍PyTricks]: contextlib.suppress
