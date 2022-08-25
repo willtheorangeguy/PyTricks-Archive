@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!--fix weird text sizing on mobile-->
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <title>PyTricks Archive</title>
+</head>
+
+<body>
+  <!--HEADER-->
+  <h1 class="headline"><span style="color: rgb(24, 53, 76);">Real Python</span> PyTricks Archive</h1>
+  <p class="copy">An archive of the PyTricks featured in Dan Badder's Real Python email newsletter.</p>
+  <!--TRICKS-->
+  <h2 id="bytecodecurtain">Peeking Behind The Bytecode Curtain<span><a href="#bytecodecurtain" class="heading-link">#</a></span></h2>
+  <pre>
+    <code>
+      # You can use Python's built-in "dis"
+      # module to disassemble functions and
+      # inspect their CPython VM bytecode:
+
+      >>> def greet(name):
+      ...     return 'Hello, ' + name + '!'
+
+      >>> greet('Dan')
+      'Hello, Dan!'
+
+      >>> import dis
+      >>> dis.dis(greet)
+      2   0 LOAD_CONST     1 ('Hello, ')
+          2 LOAD_FAST      0 (name)
+          4 BINARY_ADD
+          6 LOAD_CONST     2 ('!')
+          8 BINARY_ADD
+          10 RETURN_VALUE
+    </code>
+  </pre>
+  <h2 id="bytecodecurtain">Peeking Behind The Bytecode Curtain<span><a href="#bytecodecurtain" class="heading-link">#</a></span></h2>
+  <pre>
+    <code>
+      # You can use Python's built-in "dis"
+      # module to disassemble functions and
+      # inspect their CPython VM bytecode:
+
+      >>> def greet(name):
+      ...     return 'Hello, ' + name + '!'
+
+      >>> greet('Dan')
+      'Hello, Dan!'
+
+      >>> import dis
+      >>> dis.dis(greet)
+      2   0 LOAD_CONST     1 ('Hello, ')
+          2 LOAD_FAST      0 (name)
+          4 BINARY_ADD
+          6 LOAD_CONST     2 ('!')
+          8 BINARY_ADD
+          10 RETURN_VALUE
+    </code>
+  </pre>
+  <!--FOOTER-->
+  <br>
+  <p class="copy"><a class="link" href="https://github.com/willtheorangeguy/PyTricks-Archive">Contribute!</a> • <a class="link" href="legal/privacy.html">Privacy Policy</a> • <a class="link" href="legal/terms.html">Terms of Service</a></p>
+  <p class="copy">My work on this project is released under the <a class="link" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International Public License</a>. The PyTricks are copyright <a class="link" href="https://realpython.com/">Dan Badder of Real Python</a>.</p>
+  <p class="copy">Built With:</p>
+  <a href="https://fonts.bunny.net/">
+    <img style="width: 180px; height: 42px;" src="https://bunny.net/v2/images/bunnynet-logo-dark.svg" alt="Bunny Fonts Logo">
+  </a>
+  <a href="https://pages.github.com/">
+    <img style="width: 42px; height: 42px; margin-left: none;" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo">
+  </a>
+  <br>
+</body>
+
+</html>
