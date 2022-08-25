@@ -35,27 +35,778 @@
           10 RETURN_VALUE
     </code>
   </pre>
-  <h2 id="bytecodecurtain">Peeking Behind The Bytecode Curtain<span><a href="#bytecodecurtain" class="heading-link">#</a></span></h2>
+  <h2 id="checkifallequal">Check if all elements in a list are equal<span><a href="#checkifallequal" class="heading-link">#</a></span></h2>
   <pre>
     <code>
-      # You can use Python's built-in "dis"
-      # module to disassemble functions and
-      # inspect their CPython VM bytecode:
+      # Pythonic ways of checking if all
+      # items in a list are equal:
 
-      >>> def greet(name):
-      ...     return 'Hello, ' + name + '!'
+      >>> lst = ['a', 'a', 'a']
 
-      >>> greet('Dan')
-      'Hello, Dan!'
+      >>> len(set(lst)) == 1
+      True
 
-      >>> import dis
-      >>> dis.dis(greet)
-      2   0 LOAD_CONST     1 ('Hello, ')
-          2 LOAD_FAST      0 (name)
-          4 BINARY_ADD
-          6 LOAD_CONST     2 ('!')
-          8 BINARY_ADD
-          10 RETURN_VALUE
+      >>> all(x == lst[0] for x in lst)
+      True
+
+      >>> lst.count(lst[0]) == len(lst)
+      True
+
+      # I ordered those from "most Pythonic" to "least Pythonic" 
+      # and  "least efficient" to "most efficient". 
+      # The len(set()) solution is idiomatic,  but constructing 
+      # a set is less efficient memory and speed-wise.
+    </code>
+  </pre>
+  <h2 id="classinheritance">Class inheritance and the issubclass() built-in<span><a href="#classinheritance" class="heading-link">#</a></span></h2>
+  <pre>
+    <code>
+      # You can check for class
+      # inheritance relationships 
+      # with the "issubclass()" built-in:
+
+      >>> class BaseClass: pass
+      >>> class SubClass(BaseClass): pass
+
+      >>> issubclass(SubClass, BaseClass)
+      True
+      >>> issubclass(SubClass, object)
+      True
+      >>> issubclass(BaseClass, SubClass)
+      False
+    </code>
+  </pre>
+  <h2 id="contextlib">contextlib.suppress<span><a href="#contextlib" class="heading-link">#</a></span></h2>
+  <pre>
+    <code>
+      # In Python 3.4+ you can use
+      # contextlib.suppress() to selectively
+      # ignore specific exceptions:
+      
+      import contextlib
+      
+      with contextlib.suppress(FileNotFoundError):
+          os.remove('somefile.tmp')
+      
+      # This is equivalent to:
+      
+      try:
+          os.remove('somefile.tmp')
+      except FileNotFoundError:
+          pass
+      
+      # contextlib.suppress docstring: 
+      #
+      # "Return a context manager that suppresses any 
+      #  of the specified exceptions if they occur in the body
+      #  of a with statement and then resumes execution with 
+      #  the first statement following the end of 
+      #  the with statement."
+    </code>
+  </pre>
+  <h2 id="cpythoneasteregg">CPython easter egg<span><a href="#cpythoneasteregg" class="heading-link">#</a></span></h2>
+  <pre>
+    <code>
+      # Here's a fun little CPython easter egg.
+      # Just run the following in a Python 2.7+ 
+      # interpreter session:
+      
+      >>> import antigravity
+    </code>
+  </pre>
+  <h2 id="emulateswitchcasestatements">Emulate switch/case statements<span><a href="#emulateswitchcasestatements" class="heading-link">#</a></span></h2>
+  <pre>
+    <code>
+      # Because Python has first-class functions they can
+      # be used to emulate switch/case statements
+      
+      def dispatch_if(operator, x, y):
+          if operator == 'add':
+              return x + y
+          elif operator == 'sub':
+              return x - y
+          elif operator == 'mul':
+              return x * y
+          elif operator == 'div':
+              return x / y
+          else:
+              return None
+      
+      
+      def dispatch_dict(operator, x, y):
+          return {
+              'add': lambda: x + y,
+              'sub': lambda: x - y,
+              'mul': lambda: x * y,
+              'div': lambda: x / y,
+          }.get(operator, lambda: None)()
+      
+      
+      >>> dispatch_if('mul', 2, 8)
+      16
+      
+      >>> dispatch_dict('mul', 2, 8)
+      16
+      
+      >>> dispatch_if('unknown', 2, 8)
+      None
+      
+      >>> dispatch_dict('unknown', 2, 8)
+      None
+    </code>
+  </pre>
+  <h2 id="faulthandler">Python 3.3+ has a new "faulthandler" std lib module<span><a href="#faulthandler" class="heading-link">#</a></span></h2>
+  <pre>
+    <code>
+      # Python 3.3+ has a std
+      # lib module for displaying
+      # tracebacks even when Python
+      # "dies", e.g with a segfault:
+      
+      import faulthandler
+      faulthandler.enable()
+      
+      # Can also be enabled with
+      # "python -X faulthandler"
+      # from the command line.
+      
+      # Learn more here:
+      # https://docs.python.org/3/library/faulthandler.html
+    </code>
+  </pre>
+  <h2 id="findmostcommonelement">Finding the most common elements in an iterable<span><a href="#findmostcommonelement" class="heading-link">#</a></span></h2>
+  <pre>
+    <code>
+      # collections.Counter lets you find the most common
+      # elements in an iterable:
+      
+      >>> import collections
+      >>> c = collections.Counter('helloworld')
+      
+      >>> c
+      Counter({'l': 3, 'o': 2, 'e': 1, 'd': 1, 'h': 1, 'r': 1, 'w': 1})
+      
+      >>> c.most_common(3)
+      [('l', 3), ('o', 2), ('e', 1)]
+    </code>
+  </pre>
+  <h2 id="forandwhileelsebranch">"for" (and "while") loops can have an "else" branch?!<span><a href="#forandwhileelsebranch" class="heading-link">#</a></span></h2>
+  <pre>
+    <code>
+      # Python's `for` and `while` loops
+      # support an `else` clause that executes
+      # only if the loops terminates without
+      # hitting a `break` statement.
+      
+      def contains(haystack, needle):
+          """
+          Throw a ValueError if `needle` not
+          in `haystack`.
+          """
+          for item in haystack:
+              if item == needle:
+                  break
+          else:
+              # The `else` here is a
+              # "completion clause" that runs
+              # only if the loop ran to completion
+              # without hitting a `break` statement.
+              raise ValueError('Needle not found')
+      
+      
+      >>> contains([23, 'needle', 0xbadc0ffee], 'needle')
+      None
+      
+      >>> contains([23, 42, 0xbadc0ffee], 'needle')
+      ValueError: "Needle not found"
+      
+      
+      # Personally, I'm not a fan of the `else`
+      # "completion clause" in loops because
+      # I find it confusing. I'd rather do
+      # something like this:
+      def better_contains(haystack, needle):
+          for item in haystack:
+              if item == needle:
+                  return
+          raise ValueError('Needle not found')
+      
+      # Note: Typically you'd write something
+      # like this to do a membership test,
+      # which is much more Pythonic:
+      if needle not in haystack:
+          raise ValueError('Needle not found')
+    </code>
+  </pre>
+  <h2 id="forcedkeywordparameters">Forced keyword-only parameters in Python 3.x<span><a href="#forcedkeywordparameters" class="heading-link">#</a></span></h2>
+  <pre>
+    <code>
+      # In Python 3 you can use a bare "*" asterisk
+      # in function parameter lists to force the
+      # caller to use keyword arguments for certain
+      # parameters:
+      
+      >>> def f(a, b, *, c='x', d='y', e='z'):
+      ...     return 'Hello'
+      
+      # To pass the value for c, d, and e you 
+      # will need to explicitly pass it as 
+      # "key=value" named arguments:
+      >>> f(1, 2, 'p', 'q', 'v')
+      TypeError: 
+      "f() takes 2 positional arguments but 5 were given"
+      
+      >>> f(1, 2, c='p', d='q',e='v')
+      'Hello'
+    </code>
+  </pre>
+  <h2 id="functionargumentunpacking">Function argument unpacking in Python<span><a href="#functionargumentunpacking" class="heading-link">#</a></span></h2>
+  <pre>
+    <code>
+      # Why Python Is Great:
+      # Function argument unpacking
+      
+      def myfunc(x, y, z):
+          print(x, y, z)
+      
+      tuple_vec = (1, 0, 1)
+      dict_vec = {'x': 1, 'y': 0, 'z': 1}
+      
+      >>> myfunc(*tuple_vec)
+      1, 0, 1
+      
+      >>> myfunc(**dict_vec)
+      1, 0, 1
+    </code>
+  </pre>
+  <h2 id="httpserver">Python's built-in HTTP server<span><a href="#httpserver" class="heading-link">#</a></span></h2>
+  <pre>
+    <code>
+      # Python has a HTTP server built into the
+      # standard library. This is super handy for
+      # previewing websites.
+      
+      # Python 3.x
+      $ python3 -m http.server
+      
+      # Python 2.x
+      $ python -m SimpleHTTPServer 8000
+      
+      # (This will serve the current directory at
+      #  http://localhost:8000)
+    </code>
+  </pre>
+  <h2 id="inplacevalueswapping">Python's shorthand for in-place value swapping<span><a href="#inplacevalueswapping" class="heading-link">#</a></span></h2>
+  <pre>
+    <code>
+      # Why Python Is Great:
+      # In-place value swapping
+      
+      # Let's say we want to swap
+      # the values of a and b...
+      a = 23
+      b = 42
+      
+      # The "classic" way to do it
+      # with a temporary variable:
+      tmp = a
+      a = b
+      b = tmp
+      
+      # Python also lets us
+      # use this short-hand:
+      a, b = b, a
+  </pre>
+  <h2 id="ipaddresses">Working with IP addresses in Python 3<span><a href="#ipaddresses" class="heading-link">#</a></span></h2>
+  <pre>
+    <code>
+      # Python 3 has a std lib
+      # module for working with
+      # IP addresses:
+      
+      >>> import ipaddress
+      
+      >>> ipaddress.ip_address('192.168.1.2')
+      IPv4Address('192.168.1.2')
+      
+      >>> ipaddress.ip_address('2001:af3::')
+      IPv6Address('2001:af3::')
+      
+      # Learn more here:
+      # https://docs.python.org/3/library/ipaddress.html
+    </code>
+  </pre>
+  <h2 id="isvsequals">"is" vs "=="<span><a href="#isvsequals" class="heading-link">#</a></span></h2>
+  <pre>
+    <code>
+      # "is" vs "=="
+
+      >>> a = [1, 2, 3]
+      >>> b = a
+      
+      >>> a is b
+      True
+      >>> a == b
+      True
+      
+      >>> c = list(a)
+      
+      >>> a == c
+      True
+      >>> a is c
+      False
+      
+      # • "is" expressions evaluate to True if two 
+      #   variables point to the same object
+      
+      # • "==" evaluates to True if the objects 
+      #   referred to by the variables are equal
+    </code>
+  </pre>
+  <h2 id="itertools">itertools.permutations()<span><a href="#itertools" class="heading-link">#</a></span></h2>
+  <pre>
+    <code>
+
+      # itertools.permutations() generates permutations 
+      # for an iterable. Time to brute-force those passwords ;-)
+      
+      >>> import itertools
+      >>> for p in itertools.permutations('ABCD'):
+      ...     print(p)
+      
+      ('A', 'B', 'C', 'D')
+      ('A', 'B', 'D', 'C')
+      ('A', 'C', 'B', 'D')
+      ('A', 'C', 'D', 'B')
+      ('A', 'D', 'B', 'C')
+      ('A', 'D', 'C', 'B')
+      ('B', 'A', 'C', 'D')
+      ('B', 'A', 'D', 'C')
+      ('B', 'C', 'A', 'D')
+      ('B', 'C', 'D', 'A')
+      ('B', 'D', 'A', 'C')
+      ('B', 'D', 'C', 'A')
+      ('C', 'A', 'B', 'D')
+      ('C', 'A', 'D', 'B')
+      ('C', 'B', 'A', 'D')
+      ('C', 'B', 'D', 'A')
+      ('C', 'D', 'A', 'B')
+      ('C', 'D', 'B', 'A')
+      ('D', 'A', 'B', 'C')
+      ('D', 'A', 'C', 'B')
+      ('D', 'B', 'A', 'C')
+      ('D', 'B', 'C', 'A')
+      ('D', 'C', 'A', 'B')
+      ('D', 'C', 'B', 'A')
+    </code>
+  </pre>
+  <h2 id="lambdafunctions">Lambda Functions<span><a href="#lambdafunctions" class="heading-link">#</a></span></h2>
+  <pre>
+    <code>
+      # The lambda keyword in Python provides a
+      # shortcut for declaring small and 
+      # anonymous functions:
+      
+      >>> add = lambda x, y: x + y
+      >>> add(5, 3)
+      8
+      
+      # You could declare the same add() 
+      # function with the def keyword:
+      
+      >>> def add(x, y):
+      ...     return x + y
+      >>> add(5, 3)
+      8
+      
+      # So what's the big fuss about?
+      # Lambdas are *function expressions*:
+      >>> (lambda x, y: x + y)(5, 3)
+      8
+      
+      # • Lambda functions are single-expression 
+      # functions that are not necessarily bound
+      # to a name (they can be anonymous).
+      
+      # • Lambda functions can't use regular 
+      # Python statements and always include an
+      # implicit `return` statement.
+    </code>
+  </pre>
+  <h2 id="listcomprehensions">Python's list comprehensions are awesome<span><a href="#listcomprehensions" class="heading-link">#</a></span></h2>
+  <pre>
+    <code>
+      # Python's list comprehensions are awesome.
+
+      vals = [expression 
+              for value in collection 
+              if condition]
+      
+      # This is equivalent to:
+      
+      vals = []
+      for value in collection:
+          if condition:
+              vals.append(expression)
+      
+      # Example:
+      
+      >>> even_squares = [x * x for x in range(10) if not x % 2]
+      >>> even_squares
+      [0, 4, 16, 36, 64]
+    </code>
+  </pre>
+  <h2 id="listslice">Python list slice syntax fun<span><a href="#listslice" class="heading-link">#</a></span></h2>
+  <pre>
+    <code>
+      # Python's list slice syntax can be used without indices
+      # for a few fun and useful things:
+      
+      # You can clear all elements from a list:
+      >>> lst = [1, 2, 3, 4, 5]
+      >>> del lst[:]
+      >>> lst
+      []
+      
+      # You can replace all elements of a list
+      # without creating a new list object:
+      >>> a = lst
+      >>> lst[:] = [7, 8, 9]
+      >>> lst
+      [7, 8, 9]
+      >>> a
+      [7, 8, 9]
+      >>> a is lst
+      True
+      
+      # You can also create a (shallow) copy of a list:
+      >>> b = lst[:]
+      >>> b
+      [7, 8, 9]
+      >>> b is lst
+      False
+    </code>
+  </pre>
+  <h2 id="methodscomparison">@classmethod vs @staticmethod vs "plain" methods<span><a href="#methodscomparison" class="heading-link">#</a></span></h2>
+  <pre>
+    <code>
+      # @classmethod vs @staticmethod vs "plain" methods
+      # What's the difference?
+      
+      class MyClass:
+          def method(self):
+              """
+              Instance methods need a class instance and
+              can access the instance through `self`.
+              """
+              return 'instance method called', self
+      
+          @classmethod
+          def classmethod(cls):
+              """
+              Class methods don't need a class instance.
+              They can't access the instance (self) but
+              they have access to the class itself via `cls`.
+              """
+              return 'class method called', cls
+      
+          @staticmethod
+          def staticmethod():
+              """
+              Static methods don't have access to `cls` or `self`.
+              They work like regular functions but belong to
+              the class's namespace.
+              """
+              return 'static method called'
+      
+      # All methods types can be
+      # called on a class instance:
+      >>> obj = MyClass()
+      >>> obj.method()
+      ('instance method called', <MyClass instance at 0x1019381b8>)
+      >>> obj.classmethod()
+      ('class method called', <class MyClass at 0x101a2f4c8>)
+      >>> obj.staticmethod()
+      'static method called'
+      
+      # Calling instance methods fails
+      # if we only have the class object:
+      >>> MyClass.classmethod()
+      ('class method called', <class MyClass at 0x101a2f4c8>)
+      >>> MyClass.staticmethod()
+      'static method called'
+      >>> MyClass.method()
+      TypeError: 
+          "unbound method method() must be called with MyClass "
+          "instance as first argument (got nothing instead)"
+    </code>
+  </pre>
+  <h2 id="multiplekwargs">Multiple sets of kwargs in Python 3.5+<span><a href="#multiplekwargs" class="heading-link">#</a></span></h2>
+  <pre>
+    <code>
+      # Python 3.5+ allows passing multiple sets
+      # of keyword arguments ("kwargs") to a
+      # function within a single call, using
+      # the "**" syntax:
+      
+      >>> def process_data(a, b, c, d):
+      >>>    print(a, b, c, d)
+      
+      >>> x = {'a': 1, 'b': 2}
+      >>> y = {'c': 3, 'd': 4}
+      
+      >>> process_data(**x, **y)
+      1 2 3 4
+      
+      >>> process_data(**x, c=23, d=42)
+      1 2 23 42
+    </code>
+  </pre>
+  <h2 id="namedtuplealternative">Python's namedtuples can be a great alternative to defining a class manually<span><a href="#namedtuplealternative" class="heading-link">#</a></span></h2>
+  <pre>
+    <code>
+      # Why Python is Great: Namedtuples
+      # Using namedtuple is way shorter than
+      # defining a class manually:
+      >>> from collections import namedtuple
+      >>> Car = namedtuple('Car', 'color mileage')
+      
+      # Our new "Car" class works as expected:
+      >>> my_car = Car('red', 3812.4)
+      >>> my_car.color
+      'red'
+      >>> my_car.mileage
+      3812.4
+      
+      # We get a nice string repr for free:
+      >>> my_car
+      Car(color='red' , mileage=3812.4)
+      
+      # Like tuples, namedtuples are immutable:
+      >>> my_car.color = 'blue'
+      AttributeError: "can't set attribute"
+    </code>
+  </pre>
+  <h2 id="prettyprintdicts">You can use "json.dumps()" to pretty-print Python dicts<span><a href="#prettyprintdicts" class="heading-link">#</a></span></h2>
+  <pre>
+    <code>
+      # The standard string repr for dicts is hard to read:
+      >>> my_mapping = {'a': 23, 'b': 42, 'c': 0xc0ffee}
+      >>> my_mapping
+      {'b': 42, 'c': 12648430. 'a': 23}  # 😞
+      
+      # The "json" module can do a much better job:
+      >>> import json
+      >>> print(json.dumps(my_mapping, indent=4, sort_keys=True))
+      {
+          "a": 23,
+          "b": 42,
+          "c": 12648430
+      }
+      
+      # Note this only works with dicts containing
+      # primitive types (check out the "pprint" module):
+      >>> json.dumps({all: 'yup'})
+      TypeError: keys must be a string
+    </code>
+  </pre>
+  <h2 id="pythondictgetmethod">The get() method on Python dicts and its "default" arg<span><a href="#pythondictgetmethod" class="heading-link">#</a></span></h2>
+  <pre>
+    <code>
+      # The get() method on dicts
+      # and its "default" argument
+      
+      name_for_userid = {
+          382: "Alice",
+          590: "Bob",
+          951: "Dilbert",
+      }
+      
+      def greeting(userid):
+          return "Hi %s!" % name_for_userid.get(userid, "there")
+      
+      >>> greeting(382)
+      "Hi Alice!"
+      
+      >>> greeting(333333)
+      "Hi there!"
+    </code>
+  </pre>
+  <h2 id="reprvsstr">When To Use __repr__ vs __str__?<span><a href="#reprvsstr" class="heading-link">#</a></span></h2>
+  <pre>
+    <code>
+      # When To Use __repr__ vs __str__?
+      # Emulate what the std lib does:
+      >>> import datetime
+      >>> today = datetime.date.today()
+      
+      # Result of __str__ should be readable:
+      >>> str(today)
+      '2017-02-02'
+      
+      # Result of __repr__ should be unambiguous:
+      >>> repr(today)
+      'datetime.date(2017, 2, 2)'
+      
+      # Python interpreter sessions use 
+      # __repr__ to inspect objects:
+      >>> today
+      datetime.date(2017, 2, 2)
+    </code>
+  </pre>
+  <h2 id="sortdictbyvalue">How to sort a Python dict by value<span><a href="#sortdictbyvalue" class="heading-link">#</a></span></h2>
+  <pre>
+    <code>
+      # How to sort a Python dict by value
+      # (== get a representation sorted by value)
+      
+      >>> xs = {'a': 4, 'b': 3, 'c': 2, 'd': 1}
+      
+      >>> sorted(xs.items(), key=lambda x: x[1])
+      [('d', 1), ('c', 2), ('b', 3), ('a', 4)]
+      
+      # Or:
+      
+      >>> import operator
+      >>> sorted(xs.items(), key=operator.itemgetter(1))
+      [('d', 1), ('c', 2), ('b', 3), ('a', 4)]
+    </code>
+  </pre>
+  <h2 id="testmultipleflags">Different ways to test multiple flags at once in Python<span><a href="#testmultipleflags" class="heading-link">#</a></span></h2>
+  <pre>
+    <code>
+      # Different ways to test multiple
+      # flags at once in Python
+      x, y, z = 0, 1, 0
+      
+      if x == 1 or y == 1 or z == 1:
+          print('passed')
+      
+      if 1 in (x, y, z):
+          print('passed')
+      
+      # These only test for truthiness:
+      if x or y or z:
+          print('passed')
+      
+      if any((x, y, z)):
+          print('passed')
+    </code>
+  </pre>
+  <h2 id="timeit">Measure the execution time of small bits of Python code with the "timeit" module<span><a href="#timeit" class="heading-link">#</a></span></h2>
+  <pre>
+    <code>
+      # The "timeit" module lets you measure the execution
+      # time of small bits of Python code
+      
+      >>> import timeit
+      >>> timeit.timeit('"-".join(str(n) for n in range(100))',
+                        number=10000)
+      
+      0.3412662749997253
+      
+      >>> timeit.timeit('"-".join([str(n) for n in range(100)])',
+                        number=10000)
+      
+      0.2996307989997149
+      
+      >>> timeit.timeit('"-".join(map(str, range(100)))',
+                        number=10000)
+      
+      0.24581470699922647
+    </code>
+  </pre>
+  <h2 id="typeannotations">Python 3.5+ type annotations<span><a href="#typeannotations" class="heading-link">#</a></span></h2>
+  <pre>
+    <code>
+      # Python 3.5+ supports 'type annotations' that can be
+      # used with tools like Mypy to write statically typed Python:
+      
+      def my_add(a: int, b: int) -> int:
+          return a + b
+    </code>
+  </pre>
+  <h2 id="unicodevariablename">Python 3 allows unicode variable names<span><a href="#unicodevariablename" class="heading-link">#</a></span></h2>
+  <pre>
+    <code>
+      # Python 3 allows unicode
+      # variable names:
+      
+      >>> π = math.pi
+      >>> class Spin̈alTap: pass
+      >>> Spin̈alTap()
+      <Spin̈alTap object at 0x10e58d908>
+      
+      # Only letter-like characters
+      # work, however:
+      
+      >>> 🍺 = "beer"
+      SyntaxError:
+      "invalid character in identifier"
+    </code>
+  </pre>
+  <h2 id="virtualenvs">Avoid version conflicts with Virtual Environments<span><a href="#virtualenvs" class="heading-link">#</a></span></h2>
+  <pre>
+    <code>
+      # Virtual Environments ("virtualenvs") keep
+      # your project dependencies separated.
+      # They help you avoid version conflicts
+      # between packages and different versions
+      # of the Python runtime.
+      
+      # Before creating & activating a virtualenv:
+      # `python` and `pip` map to the system
+      # version of the Python interpreter
+      # (e.g. Python 2.7)
+      $ which python
+      /usr/local/bin/python
+      
+      # Let's create a fresh virtualenv using
+      # another version of Python (Python 3):
+      $ python3 -m venv ./venv
+      
+      # A virtualenv is just a "Python
+      # environment in a folder":
+      $ ls ./venv
+      bin      include    lib      pyvenv.cfg
+      
+      # Activating a virtualenv configures the
+      # current shell session to use the python
+      # (and pip) commands from the virtualenv
+      # folder instead of the global environment:
+      $ source ./venv/bin/activate
+      
+      # Note how activating a virtualenv modifies
+      # your shell prompt with a little note
+      # showing the name of the virtualenv folder:
+      (venv) $ echo "wee!"
+      
+      # With an active virtualenv, the `python`
+      # command maps to the interpreter binary
+      # *inside the active virtualenv*:
+      (venv) $ which python
+      /Users/dan/my-project/venv/bin/python3
+      
+      # Installing new libraries and frameworks
+      # with `pip` now installs them *into the
+      # virtualenv sandbox*, leaving your global
+      # environment (and any other virtualenvs)
+      # completely unmodified:
+      (venv) $ pip install requests
+      
+      # To get back to the global Python
+      # environment, run the following command:
+      (venv) $ deactivate
+      
+      # (See how the prompt changed back
+      # to "normal" again?)
+      $ echo "yay!"
+      
+      # Deactivating the virtualenv flipped the
+      # `python` and `pip` commands back to
+      # the global environment:
+      $ which python
+      /usr/local/bin/python
     </code>
   </pre>
   <!--FOOTER-->
