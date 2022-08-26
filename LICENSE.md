@@ -76,25 +76,25 @@ Licensed Material available under these terms and conditions.
 
   a. License grant.
 
-       1. Subject to the terms and conditions of this Public License,
+  1. Subject to the terms and conditions of this Public License,
           the Licensor hereby grants You a worldwide, royalty-free,
           non-sublicensable, non-exclusive, irrevocable license to
           exercise the Licensed Rights in the Licensed Material to:
 
-            a. reproduce and Share the Licensed Material, in whole or
+        a. reproduce and Share the Licensed Material, in whole or
                in part; and
 
-            b. produce, reproduce, and Share Adapted Material.
+        b. produce, reproduce, and Share Adapted Material.
 
-       2. Exceptions and Limitations. For the avoidance of doubt, where
+  2. Exceptions and Limitations. For the avoidance of doubt, where
           Exceptions and Limitations apply to Your use, this Public
           License does not apply, and You do not need to comply with
           its terms and conditions.
 
-       3. Term. The term of this Public License is specified in Section
+  3. Term. The term of this Public License is specified in Section
           6(a).
 
-       4. Media and formats; technical modifications allowed. The
+  4. Media and formats; technical modifications allowed. The
           Licensor authorizes You to exercise the Licensed Rights in
           all media and formats whether now known or hereafter created,
           and to make technical modifications necessary to do so. The
@@ -106,22 +106,22 @@ Licensed Material available under these terms and conditions.
           simply making modifications authorized by this Section 2(a)
           (4) never produces Adapted Material.
 
-       5. Downstream recipients.
+  5. Downstream recipients.
 
-            a. Offer from the Licensor -- Licensed Material. Every
+        a. Offer from the Licensor -- Licensed Material. Every
                recipient of the Licensed Material automatically
                receives an offer from the Licensor to exercise the
                Licensed Rights under the terms and conditions of this
                Public License.
 
-            b. No downstream restrictions. You may not offer or impose
+        b. No downstream restrictions. You may not offer or impose
                any additional or different terms or conditions on, or
                apply any Effective Technological Measures to, the
                Licensed Material if doing so restricts exercise of the
                Licensed Rights by any recipient of the Licensed
                Material.
 
-       6. No endorsement. Nothing in this Public License constitutes or
+  6. No endorsement. Nothing in this Public License constitutes or
           may be construed as permission to assert or imply that You
           are, or that Your use of the Licensed Material is, connected
           with, or sponsored, endorsed, or granted official status by,
@@ -130,7 +130,7 @@ Licensed Material available under these terms and conditions.
 
   b. Other rights.
 
-       1. Moral rights, such as the right of integrity, are not
+   1. Moral rights, such as the right of integrity, are not
           licensed under this Public License, nor are publicity,
           privacy, and/or other similar personality rights; however, to
           the extent possible, the Licensor waives and/or agrees not to
@@ -138,10 +138,10 @@ Licensed Material available under these terms and conditions.
           extent necessary to allow You to exercise the Licensed
           Rights, but not otherwise.
 
-       2. Patent and trademark rights are not licensed under this
+   2. Patent and trademark rights are not licensed under this
           Public License.
 
-       3. To the extent possible, the Licensor waives any right to
+   3. To the extent possible, the Licensor waives any right to
           collect royalties from You for the exercise of the Licensed
           Rights, whether directly or through a collecting society
           under any voluntary or waivable statutory or compulsory
@@ -155,47 +155,47 @@ following conditions.
 
   a. Attribution.
 
-       1. If You Share the Licensed Material (including in modified
+   1. If You Share the Licensed Material (including in modified
           form), You must:
 
-            a. retain the following if it is supplied by the Licensor
+         a. retain the following if it is supplied by the Licensor
                with the Licensed Material:
 
-                 i. identification of the creator(s) of the Licensed
+         i. identification of the creator(s) of the Licensed
                     Material and any others designated to receive
                     attribution, in any reasonable manner requested by
                     the Licensor (including by pseudonym if
                     designated);
 
-                ii. a copyright notice;
+         ii. a copyright notice;
 
-               iii. a notice that refers to this Public License;
+         iii. a notice that refers to this Public License;
 
-                iv. a notice that refers to the disclaimer of
+         iv. a notice that refers to the disclaimer of
                     warranties;
 
-                 v. a URI or hyperlink to the Licensed Material to the
+         v. a URI or hyperlink to the Licensed Material to the
                     extent reasonably practicable;
 
-            b. indicate if You modified the Licensed Material and
+         b. indicate if You modified the Licensed Material and
                retain an indication of any previous modifications; and
 
-            c. indicate the Licensed Material is licensed under this
+         c. indicate the Licensed Material is licensed under this
                Public License, and include the text of, or the URI or
                hyperlink to, this Public License.
 
-       2. You may satisfy the conditions in Section 3(a)(1) in any
+   2. You may satisfy the conditions in Section 3(a)(1) in any
           reasonable manner based on the medium, means, and context in
           which You Share the Licensed Material. For example, it may be
           reasonable to satisfy the conditions by providing a URI or
           hyperlink to a resource that includes the required
           information.
 
-       3. If requested by the Licensor, You must remove any of the
+   3. If requested by the Licensor, You must remove any of the
           information required by Section 3(a)(1)(A) to the extent
           reasonably practicable.
 
-       4. If You Share Adapted Material You produce, the Adapter's
+   4. If You Share Adapted Material You produce, the Adapter's
           License You apply must not prevent recipients of the Adapted
           Material from complying with this Public License.
 
@@ -258,13 +258,13 @@ Rights include other Copyright and Similar Rights.
   b. Where Your right to use the Licensed Material has terminated under
      Section 6(a), it reinstates:
 
-       1. automatically as of the date the violation is cured, provided
+   1. automatically as of the date the violation is cured, provided
           it is cured within 30 days of Your discovery of the
           violation; or
 
-       2. upon express reinstatement by the Licensor.
+   2. upon express reinstatement by the Licensor.
 
-     For the avoidance of doubt, this Section 6(b) does not affect any
+   For the avoidance of doubt, this Section 6(b) does not affect any
      right the Licensor may have to seek remedies for Your violations
      of this Public License.
 
@@ -308,6 +308,8 @@ Rights include other Copyright and Similar Rights.
      that apply to the Licensor or You, including from the legal
      processes of any jurisdiction or authority.
 
+>**Note**
+>
 > Creative Commons is not a party to its public
 > licenses. Notwithstanding, Creative Commons may elect to apply one of
 > its public licenses to material it publishes and in those instances
