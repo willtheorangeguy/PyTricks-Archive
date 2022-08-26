@@ -13,6 +13,8 @@
 <div align="center">
   <!-- Stability -->
   <img alt="GitHub Pages State" src="https://github.com/willtheorangeguy/PyTricks-Archive/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages">
+  <!--Gitleaks-->
+  <img alt="Gitleaks State" src="https://github.com/willtheorangeguy/PyTricks-Archive/actions/workflows/gitleaks.yml/badge.svg">
   <!-- Issues -->
   <img alt="GitHub Issues" src="https://img.shields.io/github/issues/willtheorangeguy/PyTricks-Archive">
   <!-- Pull Requests -->
