@@ -318,7 +318,7 @@ Rights include other Copyright and Similar Rights.
 > domain Dedication. Except for the limited purpose of indicating that
 > material is shared under a Creative Commons public license or as
 > otherwise permitted by the Creative Commons policies published at
-> [creativecommons.org/policies](creativecommons.org/policies), Creative 
+> [creativecommons.org/policies](creativecommons.org/policies), Creative
 > Commons does not authorize the
 > use of the trademark "Creative Commons" or any other trademark or logo
 > of Creative Commons without its prior written consent including,
