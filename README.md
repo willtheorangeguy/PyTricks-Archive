@@ -103,16 +103,19 @@ This software uses the following open source packages, projects, services or web
     <th align="center"><img src="https://applets.imgix.net/https%3A%2F%2Fassets.ifttt.com%2Fimages%2Fchannels%2F2107379463%2Ficons%2Fmonochrome_large.png?w=240&h=240&s=8a19bbc158996d098e2fb18310ba7f33" width="150" height="150" alt="GitHub"/></th>
     <th align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/182px-Python-logo-notext.svg.png" width="150" height="150" alt="Real Python"/></th>
     <th align="center"><img src="https://s3-eu-west-1.amazonaws.com/tpd/logos/60ae96c09f902b0001b4569c/0x0.png" width="150" height="150" alt="Bunny Fonts"/></th>
+    <th align="center"><img src="https://assets.simpleanalytics.com/press/logo-ratio-1-1/square.svg" width="150" height="150" alt="Simple Analytics"/></th>
   </tr>
   <tr>
     <td align="center">GitHub</td>
     <td align="center">Real Python</td>
     <td align="center">Bunny Fonts</td>
+    <td align="center">Simple Analytics</td>
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/">Web</a> - <a href="https://github.com/pricing">Plans</a></td>
     <td align="center"><a href="https://realpython.com/">Web</a></td>
     <td align="center"><a href="https://fonts.bunny.net/">Web</a></td>
+    <td align="center"><a href="https://simpleanalytics.com/?referral=willtheorangeguy">Web</a> - <a href="https://www.simpleanalytics.com/pricing">Plans</a></td>
 </table>
 
 ## Contributors

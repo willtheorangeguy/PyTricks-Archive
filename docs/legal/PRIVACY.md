@@ -1,6 +1,6 @@
 # Privacy Policy
 
-Last updated: August 25, 2022.
+Last updated: October 9, 2022.
 
 This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.
 
@@ -34,7 +34,15 @@ For the purposes of this Privacy Policy:
 
 ### Personal Data
 
-While using Our Service, no data is held by the website. We do not use any cookies, or any other means of collecting personal data.
+While using Our Service, We may ask You to provide Us with certain personally identifiable information that can be used to contact or identify You. Personally identifiable information may include, but is not limited to:
+
+- Analytical Data
+
+### Analytical Data
+
+We use [Simple Analytics](https://simpleanalytics.com/?referral=willtheorangeguy) to see who uses our website. Simple Analytics is privacy-focused, and they only "collect information that is necessary to show ... simple analytics, but unlike other analytics tools, [do not] collect more than absolutely necessary." They do not collect cookies, and are GDPR friendly.
+
+Their privacy policy is available [here](https://simpleanalytics.com/privacy-policy).
 
 ## Disclosure of Your Personal Data
 
