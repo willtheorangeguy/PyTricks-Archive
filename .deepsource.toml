@@ -12,11 +12,8 @@ name = "docker"
 [[analyzers]]
 name = "javascript"
 
-[[analyzers]]
-name = "python"
-
   [analyzers.meta]
-  runtime_version = "3.x.x"
+  environment = ["browser"]
 
 [[transformers]]
 name = "prettier"
