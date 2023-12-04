@@ -1,0 +1,22 @@
+{
+  "name": "pytricks-archive",
+  "version": "1.0.0",
+  "description": "An archive of the 🐍PyTricks featured in Dan Badder's Real Python email newsletter.",
+  "main": "index.html",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willtheorangeguy/PyTricks-Archive.git"
+  },
+  "author": "willtheorangeguy",
+  "license": "CC-BY-4.0",
+  "bugs": {
+    "url": "https://github.com/willtheorangeguy/PyTricks-Archive/issues"
+  },
+  "homepage": "https://github.com/willtheorangeguy/PyTricks-Archive#readme"
+}
