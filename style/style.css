@@ -17,7 +17,7 @@ a {
   text-decoration: none;
 }
 
-pre {
+/* pre {
   margin-top: 0px;
   margin-bottom: 0px;
 }
@@ -32,8 +32,7 @@ pre code {
   white-space: pre;
   display: block;
   border-radius: 10px;
-
-}
+} */
 
 .headline {
   font-family: 'Rancho', handwriting;
