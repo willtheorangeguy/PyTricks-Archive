@@ -5,6 +5,11 @@
   <link rel="stylesheet" href="style/style.css">
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
   <title>PyTricks Archive</title>
+
+  <!--Syntax.js-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/williamtroup/Syntax.js@3.1.0/dist/syntax.js.css">
+  <script src="https://cdn.jsdelivr.net/gh/williamtroup/Syntax.js@3.1.0/dist/syntax.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/williamtroup/Syntax.js@3.1.0/dist/languages/syntax.python.js"></script>
 </head>
 
 <body>
@@ -14,7 +19,7 @@
   <!--TRICKS-->
   <h2 id="bytecodecurtain">Peeking Behind The Bytecode Curtain<span><a href="#bytecodecurtain" class="heading-link">#</a></span></h2>
   <pre>
-    <code>
+    <code data-syntax-language="python">
       # You can use Python's built-in "dis"
       # module to disassemble functions and
       # inspect their CPython VM bytecode:
