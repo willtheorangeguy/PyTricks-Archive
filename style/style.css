@@ -1,11 +1,11 @@
 @import url(https://fonts.bunny.net/css?family=rancho:400);
 
 body {
-    margin: auto;
-    width: 80%;
-    text-align: center;
-    color: rgb(0, 0, 0);
-    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier;
+  margin: auto;
+  width: 80%;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier;
 }
 
 h2 {
@@ -13,7 +13,7 @@ h2 {
 }
 
 a {
-  font-size: 16px;   
+  font-size: 16px;
   text-decoration: none;
 }
 
@@ -35,38 +35,38 @@ pre code {
 } */
 
 .headline {
-  font-family: 'Rancho', handwriting;
+  font-family: "Rancho", handwriting;
   font-size: 400%;
-  padding: 0; 
+  padding: 0;
   margin: 0;
 }
 
 .copy {
-  font-size: 16px;  
+  font-size: 16px;
   color: rgb(125, 125, 125);
 }
 
 /* unvisited link */
 .link:link {
-    color: rgb(125, 125, 125);
-    text-decoration: none;
-  }
-  
-  /* visited link */
-  .link:visited {
-    color: rgb(125, 125, 125);
-  }
-  
-  /* mouse over link */
-  .link:hover {
-    color: rgb(24, 53, 76);
-    text-decoration: underline;
-  }
-  
-  /* selected link */
-  .link:active {
-    color: rgb(125, 125, 125);
-  }
+  color: rgb(125, 125, 125);
+  text-decoration: none;
+}
+
+/* visited link */
+.link:visited {
+  color: rgb(125, 125, 125);
+}
+
+/* mouse over link */
+.link:hover {
+  color: rgb(24, 53, 76);
+  text-decoration: underline;
+}
+
+/* selected link */
+.link:active {
+  color: rgb(125, 125, 125);
+}
 
 .heading-link {
   font-size: 20pt;
@@ -75,8 +75,8 @@ pre code {
   margin-left: 10px;
 }
 
-  .heading-link:hover {
-    opacity: 100;
-    color: rgb(24, 53, 76);
-    text-decoration: none;
-  }
+.heading-link:hover {
+  opacity: 100;
+  color: rgb(24, 53, 76);
+  text-decoration: none;
+}
