@@ -6,9 +6,7 @@
   "directories": {
     "doc": "docs"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/willtheorangeguy/PyTricks-Archive.git"
@@ -18,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/willtheorangeguy/PyTricks-Archive/issues"
   },
-  "homepage": "https://github.com/willtheorangeguy/PyTricks-Archive#readme"
+  "homepage": "https://github.com/willtheorangeguy/PyTricks-Archive#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^24.10.1",
+    "http-server": "^14.1.1"
+  }
 }
