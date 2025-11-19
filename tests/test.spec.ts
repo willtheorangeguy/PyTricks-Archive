@@ -49,3 +49,21 @@ test('Footer links are present and correct', async ({ page }) => {
   await expect(termsLink).toBeVisible();
   await expect(termsLink).toHaveText('Terms of Service');
 });
+
+test('Syntax highlighting is applied to code blocks', async ({ page }) => {
+  await page.goto('/');
+  
+  // Check that code blocks have the language-python class
+  const codeBlocks = page.locator('code.language-python');
+  const count = await codeBlocks.count();
+  expect(count).toBeGreaterThan(0);
+  
+  // Check that syntax highlighting spans are present in the first code block
+  const firstCodeBlock = codeBlocks.first();
+  await expect(firstCodeBlock).toBeVisible();
+  
+  // Verify that highlighted elements exist (keywords, comments, strings, etc.)
+  const highlightedElements = firstCodeBlock.locator('span.comment, span.keyword, span.string, span.builtin');
+  const highlightedCount = await highlightedElements.count();
+  expect(highlightedCount).toBeGreaterThan(0);
+});
