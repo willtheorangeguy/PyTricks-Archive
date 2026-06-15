@@ -43,6 +43,7 @@ The only active GitHub Actions workflow is `.github/workflows/gitleaks.yml`, whi
 ## PyTrick File Conventions
 
 Each file in `PyTricks/` follows this pattern:
+
 - Filename is a lowercase, no-separator description of the trick (e.g., `listcomprehensions.py`, `isvsequals.py`).
 - Content is the verbatim newsletter text, presented as comments and Python REPL sessions using `>>>` prompts.
 - No imports, no functions, no classes — just illustrative code snippets with comment narration.
@@ -50,6 +51,7 @@ Each file in `PyTricks/` follows this pattern:
 ## Adding a New PyTrick
 
 Adding a trick requires changes in three places:
+
 1. Create `PyTricks/<trickname>.py` with verbatim newsletter content.
 2. Add a corresponding entry on the `gh-pages` branch website (separate branch checkout required).
 3. Update the Table of Contents table in `README.md` with links to both the `.py` file and the web anchor.
@@ -57,6 +59,7 @@ Adding a trick requires changes in three places:
 ## Code Conventions (for any new Python code)
 
 From `.github/agents/`:
+
 - Functions: `snake_case`
 - Classes: `PascalCase`
 - Constants: `UPPER_SNAKE_CASE`
