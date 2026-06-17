@@ -1,11 +1,27 @@
 @import url(https://fonts.bunny.net/css?family=rancho:400);
 
+:root {
+  --bg: #ffffff;
+  --text: #000000;
+  --muted: rgb(125, 125, 125);
+  --accent: rgb(24, 53, 76);
+}
+
+html.dark {
+  --bg: #18181b;
+  --text: #e4e4e7;
+  --muted: #a1a1aa;
+  --accent: #5ba3c9;
+}
+
 body {
     margin: auto;
     width: 80%;
     text-align: center;
-    color: rgb(0, 0, 0);
+    color: var(--text);
+    background-color: var(--bg);
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 h2 {
@@ -13,7 +29,7 @@ h2 {
 }
 
 a {
-  font-size: 16px;   
+  font-size: 16px;
   text-decoration: none;
 }
 
@@ -72,46 +88,75 @@ code .decorator {
 .headline {
   font-family: 'Rancho', handwriting;
   font-size: 400%;
-  padding: 0; 
+  padding: 0;
   margin: 0;
 }
 
 .copy {
-  font-size: 16px;  
-  color: rgb(125, 125, 125);
+  font-size: 16px;
+  color: var(--muted);
 }
 
 /* unvisited link */
 .link:link {
-    color: rgb(125, 125, 125);
+    color: var(--muted);
     text-decoration: none;
   }
-  
+
   /* visited link */
   .link:visited {
-    color: rgb(125, 125, 125);
+    color: var(--muted);
   }
-  
+
   /* mouse over link */
   .link:hover {
-    color: rgb(24, 53, 76);
+    color: var(--accent);
     text-decoration: underline;
   }
-  
+
   /* selected link */
   .link:active {
-    color: rgb(125, 125, 125);
+    color: var(--muted);
   }
 
 .heading-link {
   font-size: 20pt;
-  color: rgb(125, 125, 125);
+  color: var(--muted);
   text-decoration: none;
   margin-left: 10px;
 }
 
   .heading-link:hover {
     opacity: 100;
-    color: rgb(24, 53, 76);
+    color: var(--accent);
     text-decoration: none;
   }
+
+#theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: 1px solid var(--muted);
+  cursor: pointer;
+  padding: 6px;
+  color: var(--muted);
+  border-radius: 8px;
+  line-height: 0;
+  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+#theme-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background-color: rgba(128, 128, 128, 0.08);
+}
+
+#theme-toggle svg {
+  width: 18px;
+  height: 18px;
+}
+
+.icon-sun { display: none; }
+html.dark .icon-sun { display: block; }
+html.dark .icon-moon { display: none; }
