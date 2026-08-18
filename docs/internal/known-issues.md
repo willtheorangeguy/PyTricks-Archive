@@ -7,7 +7,6 @@ licensing decision rather than a documentation one.
 Ordered by severity. See [`docs/roadmap.md`](../roadmap.md) for the narrative version,
 which also covers deliberate non-goals.
 
-
 **4 open:** 2 medium, 2 low.
 
 ## 1. CC BY 4.0 is applied to a third party's newsletter content
@@ -53,7 +52,6 @@ which also covers deliberate non-goals.
 **Why it matters:** An archive that cannot state its own coverage is hard to rely on — a reader cannot tell whether a trick is absent because it was never sent or because it was never saved.
 
 **Suggested fix:** Record the issue date or number per trick, and note that the collection is partial.
-
 
 ---
 

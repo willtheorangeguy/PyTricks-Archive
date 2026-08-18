@@ -30,6 +30,7 @@
 </p>
 
 <!-- Hero -->
+
 ![screenshot](https://raw.githubusercontent.com/willtheorangeguy/.github/main/icons/PyTricks-Archive/welcome.gif)
 
 ## Key Features
