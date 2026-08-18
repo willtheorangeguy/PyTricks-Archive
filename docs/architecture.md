@@ -24,10 +24,10 @@ A few filenames keep a dotted module name — `contextlib.suppress.py`,
 
 ## Two branches
 
-| Branch | Holds |
-|---|---|
-| `main` | The Python files and documentation |
-| `gh-pages` | The generated website |
+| Branch     | Holds                              |
+| ---------- | ---------------------------------- |
+| `main`     | The Python files and documentation |
+| `gh-pages` | The generated website              |
 
 The website is a derived artefact rendered from the same files, with an anchor per trick so
 individual ones can be linked.

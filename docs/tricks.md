@@ -6,8 +6,8 @@ its section on the website.
 The left column is the original newsletter subject line, which is how to find the trick you
 half-remember.
 
-| **Original Email Titles**                                                                      | **Python**                                                                                                       | **Web**                                                                                 |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| **Original Email Titles**                                                                      | **Python**                                           | **Web**                                                                                 |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------- | --------------------------------------------------------------------------------------- |
 | [🐍PyTricks]: Peeking Behind The Bytecode Curtain                                              | [Python](../PyTricks/bytecodecurtain.py)             | [Web](https://willtheorangeguy.github.io/PyTricks-Archive/#bytecodecurtain)             |
 | [🐍PyTricks]: Check if all elements in a list are equal                                        | [Python](../PyTricks/checkifallequal.py)             | [Web](https://willtheorangeguy.github.io/PyTricks-Archive/#checkifallequal)             |
 | [🐍PyTricks]: Class inheritance and the issubclass() built-in                                  | [Python](../PyTricks/classinheritance.py)            | [Web](https://willtheorangeguy.github.io/PyTricks-Archive/#classinheritance)            |
