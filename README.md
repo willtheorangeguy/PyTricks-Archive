@@ -58,11 +58,7 @@ Full documentation lives in [`docs/`](docs/README.md):
 
 ## Support
 
-Open a [GitHub Discussion](https://github.com/willtheorangeguy/PyTricks-Archive/discussions/new) or file an [issue](https://github.com/willtheorangeguy/PyTricks-Archive/issues/new/choose).
-
-## Contributing
-
-Contributions welcome. See the org-wide [Contributing Guide](https://github.com/willtheorangeguy/.github/blob/main/CONTRIBUTING.md) and [Code of Conduct](https://github.com/willtheorangeguy/.github/blob/main/CODE_OF_CONDUCT.md).
+Please read [`CONTRIBUTING`](https://github.com/willtheorangeguy/.github/blob/main/CONTRIBUTING.md) for details on our [`CODE OF CONDUCT`](https://github.com/willtheorangeguy/.github/blob/main/CODE_OF_CONDUCT.md), and the process for submitting pull requests to us.
 
 ## Credits
 
